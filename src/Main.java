@@ -32,9 +32,27 @@ public class Main {
 
         Game game = new Game(p1,p2);
 
-        System.out.println(game);
-        game.nextTurn();
-        System.out.println(game);
+//        System.out.println(game);
+//        game.nextTurn();
+//        System.out.println(game);
+
+        System.out.println(p1.hand);
+
+        Card use;
+        use = p1.hand.cards.get(0);
+        p1.useCard(use.name);
+        use = p1.hand.cards.get(0);
+        p1.useCard(use.name);
+
+        use = p2.hand.cards.get(0);
+        p2.useCard(use.name);
+
+
+        System.out.println(p1.hand);
+        System.out.println(p2.hand);
+
+
+        game.printField();
 
 
     }

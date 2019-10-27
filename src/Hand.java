@@ -12,13 +12,26 @@ public class Hand {
         cards.add(card);
     }
 
-    public void removeCard(Card card){
-        cards.remove(card);
+    public Card removeCard(String name){
+        Card card = findCard(name);
+        cards.remove(findCard(name)); //gets the index of the name and removes the item
+        return card;
+    }
+
+    private Card findCard(String name){
+        for (int i = 0; i < this.cards.size(); i++) {
+            if (this.cards.get(i).name.equals(name)){
+                return this.cards.get(i);
+            }
+            else continue;
+            //TODO create proper NoCardException
+        }
+        throw new IndexOutOfBoundsException();
     }
 
     @Override
     public String toString() {
-        String output = "";
+        String output = "Cards in hand";
         for (int i = 0; i < cards.size(); i++) {
             output = output+"\n"+cards.get(i);
         }
