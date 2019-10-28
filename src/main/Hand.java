@@ -1,3 +1,5 @@
+package main;
+
 import java.util.ArrayList;
 
 public class Hand {
@@ -24,8 +26,8 @@ public class Hand {
                 return this.cards.get(i);
             }
             else continue;
-            //TODO create proper NoCardException
         }
+        //TODO create proper CardNotFoundException
         throw new IndexOutOfBoundsException();
     }
 

@@ -1,4 +1,5 @@
-import java.sql.SQLOutput;
+package main;
+
 import java.util.ArrayList;
 
 public class Player {
@@ -39,7 +40,7 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player{" +
+        return "main.Player{" +
                 "name='" + name + '\'' +
                 ", is_playing=" + playing +
                 ", deck=" + deck +
@@ -67,7 +68,7 @@ public class Player {
     }
 
     public void printField(){
-        System.out.println("Field list by - Player="+name);
+        System.out.println("Field list by - main.Player="+name);
         for (int i = 0; i < this.field.size(); i++) {
             System.out.println(this.field.get(i));
         }

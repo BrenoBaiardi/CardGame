@@ -1,3 +1,5 @@
+package main;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -41,7 +43,7 @@ public class Game {
 
     @Override
     public String toString() {
-        return "\n#-#-Game Status-#-#\n" +
+        return "\n#-#-main.Game Status-#-#\n" +
                 "\nPlayer1=" + p1.getName() +
                 "\nplaying=" + p1.isPlaying() +
                 "\n\nPlayer2=" + p2.getName() +
@@ -50,7 +52,7 @@ public class Game {
     }
 
     public void printField(){
-        System.out.println("Field list In Game:\n");
+        System.out.println("Field list In main.Game:\n");
         System.out.println(p1.getName()+" cards:");
         for (int i = 0; i < this.field.get(p1.getName()).size(); i++) {
             System.out.println(this.field.get(p1.getName()).get(i));

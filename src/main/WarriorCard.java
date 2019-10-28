@@ -1,3 +1,5 @@
+package main;
+
 public class WarriorCard extends Card {
 
     private int power;

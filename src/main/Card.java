@@ -1,3 +1,5 @@
+package main;
+
 public class Card{
 
     protected String name = null;
@@ -24,7 +26,7 @@ public class Card{
 
     @Override
     public String toString() {
-        return "Card{" +
+        return "main.Card{" +
                 "name='" + name + '\'' +
                 ", color='" + color + '\'' +
                 ", type='" + type + '\'' +

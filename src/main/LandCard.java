@@ -1,3 +1,5 @@
+package main;
+
 public class LandCard extends Card{
 
     public LandCard(String name, String color){
