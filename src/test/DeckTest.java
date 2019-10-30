@@ -17,6 +17,7 @@ public class DeckTest {
     Card war_card = new WarriorCard("test Warrior", "red", 2, 2);
     Card land_card = new LandCard("test Land", "green");
 
+
     @Before
     public void setUp(){
 
@@ -29,23 +30,30 @@ public class DeckTest {
                 cards_list.add(new LandCard("Land"+Integer.toString(i+1), "blue"));
             }
         }
-        this.deck = new Deck("test_deck",this.cards_list);
+        deck = new Deck("test_deck",this.cards_list);
     }
 
     @Test
     public void checkTestCreation(){
-        Assert.assertEquals("Deck name = test_deck", this.deck.toString());
+        Assert.assertEquals("Deck name = test_deck", deck.toString().split("\n")[0]);
     }
 
     @Test
     public void checkAddOnTop(){
-        this.deck.addCardOnTop(war_card);
-        Assert.assertEquals("test Warrior", this.deck.draw().getName());
+        deck.addCardOnTop(war_card);
+        Assert.assertEquals("test Warrior", deck.draw().getName());
+    }
+
+    @Test
+    public void checkDraw(){
+        deck.addCardOnTop(war_card);
+        Card drawn_card = deck.draw();
+        Assert.assertEquals(drawn_card, war_card);
     }
 
     @Test
     public void checkAddOnBottom(){
-        this.deck.addCardOnBottom(land_card);
+        deck.addCardOnBottom(land_card);
         Card last_drawn_card=null;
         while(deck.getSize()>0){
             last_drawn_card = deck.draw();
@@ -53,4 +61,10 @@ public class DeckTest {
         Assert.assertEquals("test Land", last_drawn_card.getName());
     }
 
+    @Test
+    public void checkDrawChosenCard(){
+        deck.addCardOnBottom(land_card);
+        Card drawn_card = deck.drawChosenCard("test Land");
+        Assert.assertEquals(drawn_card, land_card);
+    }
 }

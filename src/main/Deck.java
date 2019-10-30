@@ -20,7 +20,7 @@ public class Deck {
     @Override
     public String toString() {
         String output="";
-        output += "Deck name = " + name;
+        output += "Deck name = " + name +"\n";
         for (int i = 0; i < deck.size();i++) {
             output += deck.get(i);
         }

@@ -2,6 +2,8 @@ package main;
 
 public class Card{
 
+    //TODO crate Card TestClass
+
     protected String name = null;
     protected String color = null;
     protected String type = null;

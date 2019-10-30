@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Hand {
 
+    //TODO crate Hand TestClass
+
     ArrayList<Card> cards = new ArrayList<Card>();
 
     public int getSize() {

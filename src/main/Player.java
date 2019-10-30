@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Player {
 
+    //TODO crate Player TestClass
+
     private String name;
     private boolean playing = false;
     private Deck deck;

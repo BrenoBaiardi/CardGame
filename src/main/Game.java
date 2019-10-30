@@ -6,6 +6,8 @@ import java.util.Map;
 
 public class Game {
 
+    //TODO crate Game TestClass
+
     public Player p1;
     public Player p2;
     public int turnCounter=1;
