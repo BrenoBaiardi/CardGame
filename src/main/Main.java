@@ -21,11 +21,12 @@ public class Main {
             //System.out.println(cards_list.get(cards_list.size()-1));
         }
 
-        System.out.println(cards_list.size());
+        ArrayList<Card> cards_list1 = new ArrayList<Card>(cards_list);
+        ArrayList<Card> cards_list2 = new ArrayList<Card>(cards_list);
 
-        Deck d1 = new Deck("d1",cards_list);
-        Deck d2 = new Deck("d2",cards_list);
 
+        Deck d1 = new Deck("d1",cards_list1);
+        Deck d2 = new Deck("d2",cards_list2);
         Player p1 = new Player("Play1",d1);
         Player p2 = new Player("Play2",d2);
 
@@ -33,10 +34,14 @@ public class Main {
         System.out.println(p2);
 
         Game game = new Game(p1,p2);
-
-//        System.out.println(game);
-//        game.nextTurn();
-//        System.out.println(game);
+        System.out.println(cards_list.size());
+        System.out.println(game);
+        try {
+            game.nextTurn();
+        } catch (TurnException e) {
+            e.printStackTrace();
+        }
+        System.out.println(game);
 
         System.out.println(p1.hand);
 
@@ -49,6 +54,19 @@ public class Main {
 //        use = p2.hand.cards.get(0);
 //        p2.useCard(use.name);
 
+        Card use;
+
+        use = p2.hand.cards.get(0);
+        try {
+            use = p1.hand.cards.get(0);
+            p1.useCard(use.name);
+            use = p1.hand.cards.get(0);
+            p1.useCard(use.name);
+//            p2.useCard(use.name);
+        } catch (CardNotFoundException e) {
+            e.printStackTrace();
+        }
+
 
         System.out.println(p1.hand);
         System.out.println(p2.hand);
@@ -56,6 +74,11 @@ public class Main {
 
         game.printField();
 
+        Arena arena = new Arena();
+        arena.addCard(cards_list.get(0),0,0);
+        System.out.println(arena.getCard(0,0));
+        arena.addCard(cards_list.get(0),0,1);
+        System.out.println(arena.getCard(0,1));
 
     }
 

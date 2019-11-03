@@ -53,7 +53,7 @@ public class Game {
     }
 
     public void printField(){
-        System.out.println("Field list In main.Game:\n");
+        System.out.println("\n*******\nField list In main.Game:\n");
         System.out.println(p1.getName()+" cards:");
         for (int i = 0; i < this.field.get(p1.getName()).size(); i++) {
             System.out.println(this.field.get(p1.getName()).get(i));
