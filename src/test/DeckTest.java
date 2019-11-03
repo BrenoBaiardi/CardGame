@@ -4,7 +4,6 @@ import main.Deck;
 import main.LandCard;
 import main.WarriorCard;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.Assert;
 
@@ -34,25 +33,25 @@ public class DeckTest {
     }
 
     @Test
-    public void checkTestCreation(){
+    public void testDeckCreation(){
         Assert.assertEquals("Deck name = test_deck", deck.toString().split("\n")[0]);
     }
 
     @Test
-    public void checkAddOnTop(){
+    public void testAddOnTop(){
         deck.addCardOnTop(war_card);
         Assert.assertEquals("test Warrior", deck.draw().getName());
     }
 
     @Test
-    public void checkDraw(){
+    public void testDraw(){
         deck.addCardOnTop(war_card);
         Card drawn_card = deck.draw();
         Assert.assertEquals(drawn_card, war_card);
     }
 
     @Test
-    public void checkAddOnBottom(){
+    public void testAddOnBottom(){
         deck.addCardOnBottom(land_card);
         Card last_drawn_card=null;
         while(deck.getSize()>0){
@@ -62,9 +61,10 @@ public class DeckTest {
     }
 
     @Test
-    public void checkDrawChosenCard(){
+    public void testDrawChosenCard(){
         deck.addCardOnBottom(land_card);
         Card drawn_card = deck.drawChosenCard("test Land");
         Assert.assertEquals(drawn_card, land_card);
     }
+
 }

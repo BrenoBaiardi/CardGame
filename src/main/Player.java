@@ -24,20 +24,19 @@ public class Player {
         return dead_zone;
     }
 
+    //Turn Handling
     public void beginTurn(){
         playing = true;
     }
-
     public void endTurn(){
         playing = false;
+    }
+    public boolean isPlaying() {
+        return playing;
     }
 
     public String getName() {
         return this.name;
-    }
-
-    public boolean isPlaying() {
-        return playing;
     }
 
     @Override
@@ -49,15 +48,25 @@ public class Player {
                 '}';
     }
 
-    public void drawCard(int i){
+    public void drawCard(int amount){
         if (hand==null){
             this.hand = new Hand();
         }
-        for (int j = 0; j < i; j++) {
+        for (int j = 0; j < amount; j++) {
             Card draw = deck.draw();
             hand.addCard(draw);
         }
     }
+
+    public void drawChosenCard(String name){
+        if (hand==null){
+            this.hand = new Hand();
+        }
+        Card draw = deck.drawChosenCard(name);
+        hand.addCard(draw);
+        //TODO use CardNotFoundException
+    }
+
 
     public void useCard(String name){
         Card card = this.hand.removeCard(name);

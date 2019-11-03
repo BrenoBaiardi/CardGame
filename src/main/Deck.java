@@ -49,11 +49,13 @@ public class Deck {
         }
     }
     public Card drawChosenCard(String name){
-        //TODO draw chosen card: by String
         Card card = findCard(name);
+        //TODO catch CardNotFoundException
         deck.remove(findCard(name)); //gets the index of the name and removes the item
         return card;
+
     }
+
     public void addCardOnTop(Card card){
         this.deck.add(card);
     }
