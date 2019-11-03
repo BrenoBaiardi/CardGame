@@ -37,7 +37,6 @@ public class Game {
             p1.beginTurn();
         }
         else{
-            //TODO Create Turn Exception and replace SysOutPrint
             throw new TurnException("Error while Switching turn");
         }
         turnCounter+=1;

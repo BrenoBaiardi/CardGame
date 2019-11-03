@@ -3,6 +3,8 @@ package main;
 public class Card{
 
     //TODO crate Card TestClass
+    // maybe not needed,
+    // only getters and setter until now
 
     protected String name = null;
     protected String color = null;
