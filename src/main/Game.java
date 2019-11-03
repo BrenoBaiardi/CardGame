@@ -27,7 +27,7 @@ public class Game {
         p1.beginTurn();
     }
 
-    public void nextTurn(){
+    public void nextTurn() throws TurnException {
         if (p1.isPlaying()){
             p1.endTurn();
             p2.beginTurn();
@@ -38,7 +38,7 @@ public class Game {
         }
         else{
             //TODO Create Turn Exception and replace SysOutPrint
-            System.out.println("Error while passing turn");
+            throw new TurnException("Error while Switching turn");
         }
         turnCounter+=1;
     }
