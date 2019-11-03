@@ -48,12 +48,10 @@ public class Deck {
             throw new IndexOutOfBoundsException();
         }
     }
-    public Card drawChosenCard(String name){
+    public Card drawChosenCard(String name) throws CardNotFoundException {
         Card card = findCard(name);
-        //TODO catch CardNotFoundException
         deck.remove(findCard(name)); //gets the index of the name and removes the item
         return card;
-
     }
 
     public void addCardOnTop(Card card){
@@ -63,14 +61,13 @@ public class Deck {
         this.deck.add(0,card);
     }
 
-    private Card findCard(String name){
+    private Card findCard(String name) throws CardNotFoundException {
         for (int i = 0; i < this.deck.size(); i++) {
             if (this.deck.get(i).name.equals(name)){
                 return this.deck.get(i);
             }
             else continue;
         }
-        //TODO create proper CardNotFoundException
-        throw new IndexOutOfBoundsException();
+        throw new CardNotFoundException("Could not find card in deck");
     }
 }

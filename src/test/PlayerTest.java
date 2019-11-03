@@ -50,13 +50,21 @@ public class PlayerTest {
 
     @Test
     public void testUseCard() {
-        this.play1.drawChosenCard("Land2");
-        this.play1.drawChosenCard("War3");
-        this.play1.drawChosenCard("Land4");
-        this.play1.drawChosenCard("Land6");
+        try {
+            this.play1.drawChosenCard("Land2");
+            this.play1.drawChosenCard("War3");
+            this.play1.drawChosenCard("Land4");
+            this.play1.drawChosenCard("Land6");
+        } catch (CardNotFoundException e) {
+            Assert.fail("e");
+        }
 
         Assert.assertEquals(4,play1.hand.getSize());
-        this.play1.useCard("War3");
+        try {
+            this.play1.useCard("War3");
+        } catch (CardNotFoundException e) {
+            e.printStackTrace();
+        }
         Assert.assertEquals(3,play1.hand.getSize());
         Assert.assertEquals(1,this.play1.field.size());
         
@@ -64,22 +72,41 @@ public class PlayerTest {
 
     @Test
     public void testUseCardIntoField() {
-        this.play1.drawChosenCard("Land2");
-        this.play1.drawChosenCard("War3");
+        try {
+            this.play1.drawChosenCard("Land2");
+            this.play1.drawChosenCard("War3");
+            this.play1.drawChosenCard("Land4");
+            this.play1.drawChosenCard("War5");
+            this.play1.drawChosenCard("Land6");
+            this.play1.drawChosenCard("War7");
+        } catch (CardNotFoundException e) {
+            Assert.fail();
+        }
 
-        Card card_war = new WarriorCard("War", "red", 12, 12);
-        this.play1.useCard("War3");
-        Assert.assertEquals(card_war,this.play1.field.get(0));
+        try {
+            this.play1.useCard("War3");
+        } catch (CardNotFoundException e) {
+            Assert.fail("e");
+        }
+        Assert.assertEquals("War3",this.play1.field.get(0).getName());
     }
 
     @Test
     public void testDiscardIntoDeadZone() {
-        this.play1.drawChosenCard("Land2");
-        this.play1.drawChosenCard("War3");
 
-        Card card_war = new WarriorCard("War", "red", 12, 12);
-        this.play1.discardCard("War3");
-        Assert.assertEquals(card_war,this.play1.dead_zone.get(0));
+        try {
+            this.play1.drawChosenCard("Land2");
+            this.play1.drawChosenCard("War3");
+        } catch (CardNotFoundException e) {
+            Assert.fail("e");
+        }
+
+        try {
+            this.play1.discardCard("War3");
+        } catch (CardNotFoundException e) {
+            Assert.fail("e");
+        }
+        Assert.assertEquals("War3",this.play1.dead_zone.get(0).getName());
     }
 
     @Test

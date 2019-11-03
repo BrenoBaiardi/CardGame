@@ -16,21 +16,20 @@ public class Hand {
         cards.add(card);
     }
 
-    public Card removeCard(String name){
+    public Card removeCard(String name) throws CardNotFoundException {
         Card card = findCard(name);
         cards.remove(findCard(name)); //gets the index of the name and removes the item
         return card;
     }
 
-    private Card findCard(String name){
+    private Card findCard(String name) throws CardNotFoundException {
         for (int i = 0; i < this.cards.size(); i++) {
             if (this.cards.get(i).name.equals(name)){
                 return this.cards.get(i);
             }
             else continue;
         }
-        //TODO create proper CardNotFoundException
-        throw new IndexOutOfBoundsException();
+        throw new CardNotFoundException("Card could not be found in Hand");
     }
 
     @Override

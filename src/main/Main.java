@@ -40,14 +40,14 @@ public class Main {
 
         System.out.println(p1.hand);
 
-        Card use;
-        use = p1.hand.cards.get(0);
-        p1.useCard(use.name);
-        use = p1.hand.cards.get(0);
-        p1.useCard(use.name);
-
-        use = p2.hand.cards.get(0);
-        p2.useCard(use.name);
+//        Card use;
+//        use = p1.hand.cards.get(0);
+//        p1.useCard(use.name);
+//        use = p1.hand.cards.get(0);
+//        p1.useCard(use.name);
+//
+//        use = p2.hand.cards.get(0);
+//        p2.useCard(use.name);
 
 
         System.out.println(p1.hand);

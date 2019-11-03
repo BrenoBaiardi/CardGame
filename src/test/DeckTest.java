@@ -1,8 +1,5 @@
 import jdk.nashorn.internal.ir.WhileNode;
-import main.Card;
-import main.Deck;
-import main.LandCard;
-import main.WarriorCard;
+import main.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.Assert;
@@ -61,10 +58,19 @@ public class DeckTest {
     }
 
     @Test
-    public void testDrawChosenCard(){
+    public void testDrawChosenCard() {
         deck.addCardOnBottom(land_card);
-        Card drawn_card = deck.drawChosenCard("test Land");
+        Card drawn_card = null;
+        try {
+            drawn_card = deck.drawChosenCard("test Land");
+        } catch (CardNotFoundException e) {
+            Assert.fail("e");
+        }
         Assert.assertEquals(drawn_card, land_card);
     }
 
+    @Test (expected = CardNotFoundException.class)
+    public void testDrawCardNotInDeck() throws CardNotFoundException {
+        Card drawn_card = deck.drawChosenCard("Card-not-in-deck");
+    }
 }

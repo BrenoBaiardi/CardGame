@@ -58,22 +58,21 @@ public class Player {
         }
     }
 
-    public void drawChosenCard(String name){
+    public void drawChosenCard(String name) throws CardNotFoundException {
         if (hand==null){
             this.hand = new Hand();
         }
         Card draw = deck.drawChosenCard(name);
         hand.addCard(draw);
-        //TODO use CardNotFoundException
     }
 
 
-    public void useCard(String name){
+    public void useCard(String name) throws CardNotFoundException {
         Card card = this.hand.removeCard(name);
         this.field.add(card);
     }
 
-    public void discardCard(String name){
+    public void discardCard(String name) throws CardNotFoundException {
         Card card = this.hand.removeCard(name);
         this.dead_zone.add(card);
     }
