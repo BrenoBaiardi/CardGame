@@ -1,6 +1,6 @@
-#CardGame Prototype
+# CardGame Prototype
 
-###Concept
+### Concept
 This started as a project to train concepts about Objected Oriented programming, and relationships between classes. 
 
 During the first steps of the development, the goal was to create classes able to manage the behavior that could come out when dealing with cards, decks, players taking turns, and a board field.
