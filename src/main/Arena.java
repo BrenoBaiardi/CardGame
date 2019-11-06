@@ -5,38 +5,69 @@ import java.util.Arrays;
 
 public class Arena {
 
-    /*TODO think about creating two different arenas:
-       one for lands and one for warriors/otherstuff
-     */
-    ArenaCell[][] arena = new ArenaCell[4][4];
+    int rows_size = 5;
+    int columns_size = 5;
+    ArenaCell[][] arenaLands = new ArenaCell[rows_size][columns_size];
+    ArenaCell[][] arenaWarriors = new ArenaCell[rows_size][columns_size];
 
     public Arena(){
-        for (int row = 0; row < arena.length; row++) {
-            for (int column = 0; column < arena[0].length; column++) {
-                arena[row][column] = new ArenaCell();
+        for (int row = 0; row < rows_size; row++) {
+            for (int column = 0; column < columns_size; column++) {
+                arenaLands[row][column] = new ArenaCell();
+                arenaWarriors[row][column] = new ArenaCell();
             }
         }
     }
 
-    public void addCard(Card card,int x, int y) {
-        this.arena[x][y].placeCard(card);
+    public void addCard(Card card,int r, int c) {
+        if (card instanceof LandCard) {
+            this.arenaLands[r][c].placeCard(card);
+        }
+        if (card instanceof WarriorCard) {
+            this.arenaWarriors[r][c].placeCard(card);
+        }
     }
 
-    public String checkCard(int x, int y){
-        return arena[x][y].checkCard();
+    public String checkCard(int r, int c){
+        String output="R-" + r + " C-" + c + " ";
+        //Have to check both arrays
+        //Land check
+        if (arenaLands[r][c].isEmpty()){
+            output += "Empty Land";
+        }
+        else{
+            output += arenaLands[r][c].checkCard();
+        }
+        output +=  " + ";
+        //warrior check
+        if (arenaWarriors[r][c].isEmpty()){
+            output += "No warrior";
+        }
+        else{
+            output += arenaWarriors[r][c].checkCard();
+        }
+        return output;
     }
 
     @Override
     public String toString() {
-        String output="";
-        for (int row = 0; row < arena.length; row++) {
-            for (int column = 0; column < arena[0].length; column++) {
-                output += arena[row][column].toString();
+        String output="Arena Lands\n";
+        for (int row = 0; row < arenaLands.length; row++) {
+            for (int column = 0; column < arenaLands[0].length; column++) {
+                output += arenaLands[row][column].toString();
             }
             output += "\n";
         }
 
-        return "Arena:\n" + output;
+        output += "\n\n Arena Warriors\n";
+        for (int row = 0; row < arenaWarriors.length; row++) {
+            for (int column = 0; column < arenaWarriors[0].length; column++) {
+                output += arenaWarriors[row][column].toString();
+            }
+            output += "\n";
+        }
+
+        return output;
     }
 }
 

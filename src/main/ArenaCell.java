@@ -11,10 +11,10 @@ public class ArenaCell {
     public void placeCard(Card card){
 
         if(card.type == "land")
-            //TODO add land behavior
+            //TODO add land behavior when in arena
             this.card = card;
         else if (card.type == "warrior") {
-            //TODO add Warrior behavior
+            //TODO add Warrior behavior when in arena
             this.card = card;
         }
     }
@@ -28,14 +28,23 @@ public class ArenaCell {
         }
     }
 
+    public boolean isEmpty(){
+        if (card == null){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     @Override
     public String toString() {
         if (card != null){
-            return String.format("[_%-4s]", card.name).replace(' ', '_');
+            return String.format("[_%-3s]", card.name).replace(' ', '_');
 //            return card.name;
         }
         else{
-            return "[_____]";
+            return "[____]";
         }
 
     }
