@@ -5,8 +5,9 @@ import java.util.Arrays;
 
 public class Arena {
 
-    //TODO think better about how to do this
-    //ArrayList<Card> field = new ArrayList<Card>();
+    /*TODO think about creating two different arenas:
+       one for lands and one for warriors/otherstuff
+     */
     ArenaCell[][] arena = new ArenaCell[4][4];
 
     public Arena(){
@@ -21,7 +22,7 @@ public class Arena {
         this.arena[x][y].placeCard(card);
     }
 
-    public String getCard(int x, int y){
+    public String checkCard(int x, int y){
         return arena[x][y].checkCard();
     }
 

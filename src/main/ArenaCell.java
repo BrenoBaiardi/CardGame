@@ -5,8 +5,6 @@ public class ArenaCell {
     Card card = null;
 
     public void ArenaCell(){
-        //TODO resolve how to start the grid
-        // maybe the null type is being the problem here
         this.card = null;
     }
 

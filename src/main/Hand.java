@@ -6,7 +6,7 @@ public class Hand {
 
     //TODO crate Hand TestClass
     // maybe not needed
-    // Baing validated trough PlayerTest
+    // Being validated trough PlayerTest
 
     ArrayList<Card> cards = new ArrayList<Card>();
 

@@ -6,6 +6,8 @@ public class Main {
 
     public static void main(String[] args) {
 
+        //TODO For the love of god create a README.md
+
         System.out.println("Starting Assets...");
 
         ArrayList<Card> cards_list= new ArrayList<Card>();
@@ -77,10 +79,13 @@ public class Main {
         Arena arena = new Arena();
         arena.addCard(cards_list.get(0),0,0);
         System.out.println("card inserted in Grid");
-        System.out.println(arena.getCard(0,0));
+        System.out.println(arena.checkCard(0,0));
         System.out.println("the above card was in grid");
 
         System.out.println(arena);
+        System.out.println(arena.checkCard(0,0));
+        System.out.println(arena.checkCard(0,1));
+        System.out.println(arena.checkCard(1,0));
 
     }
 

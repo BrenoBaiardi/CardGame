@@ -12,7 +12,10 @@ public class Game {
     public Player p2;
     public int turnCounter=1;
     Map<String, ArrayList<Card>> field = new HashMap<String, ArrayList<Card>>();
-    //TODO create field color weight
+    /*TODO create field color weight
+       this will wait until later
+       first i need to specify the data structure
+     */
 
     public Game(Player p1, Player p2) {
         this.p1 = p1;
