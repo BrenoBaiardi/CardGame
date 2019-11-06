@@ -6,8 +6,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //TODO For the love of god create a README.md
-
         System.out.println("Starting Assets...");
 
         ArrayList<Card> cards_list= new ArrayList<Card>();
