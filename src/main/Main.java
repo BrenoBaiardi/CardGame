@@ -76,9 +76,11 @@ public class Main {
 
         Arena arena = new Arena();
         arena.addCard(cards_list.get(0),0,0);
+        System.out.println("card inserted in Grid");
         System.out.println(arena.getCard(0,0));
-        arena.addCard(cards_list.get(0),0,1);
-        System.out.println(arena.getCard(0,1));
+        System.out.println("the above card was in grid");
+
+        System.out.println(arena);
 
     }
 

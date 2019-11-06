@@ -32,8 +32,13 @@ public class ArenaCell {
 
     @Override
     public String toString() {
-        return "ArenaCell{" +
-                "card=" + card +
-                '}';
+        if (card != null){
+            return String.format("[_%-4s]", card.name).replace(' ', '_');
+//            return card.name;
+        }
+        else{
+            return "[_____]";
+        }
+
     }
 }
