@@ -78,13 +78,13 @@ public class Main {
         arena.addCard(cards_list.get(0),0,0);
         arena.addCard(cards_list.get(1),0,1);
         System.out.println("card inserted in Grid");
-        System.out.println(arena.checkCard(0,0));
+        System.out.println(arena.checkField(0,0));
         System.out.println("the above card was in grid");
 
         System.out.println(arena);
-        System.out.println(arena.checkCard(0,0));
-        System.out.println(arena.checkCard(0,1));
-        System.out.println(arena.checkCard(1,0));
+        System.out.println(arena.checkField(0,0));
+        System.out.println(arena.checkField(0,1));
+        System.out.println(arena.checkField(1,0));
 
     }
 

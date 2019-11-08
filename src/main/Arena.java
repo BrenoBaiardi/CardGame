@@ -8,10 +8,10 @@ public class Arena {
     //TODO create ArenaTest
     // some of the behaviors should be easier to test
 
-    int rows_size = 5;
-    int columns_size = 5;
-    ArenaCell[][] arenaLands = new ArenaCell[rows_size][columns_size];
-    ArenaCell[][] arenaWarriors = new ArenaCell[rows_size][columns_size];
+    public int rows_size = 5;
+    public int columns_size = 5;
+    public ArenaCell[][] arenaLands = new ArenaCell[rows_size][columns_size];
+    public ArenaCell[][] arenaWarriors = new ArenaCell[rows_size][columns_size];
 
     public Arena(){
         for (int row = 0; row < rows_size; row++) {
@@ -31,7 +31,7 @@ public class Arena {
         }
     }
 
-    public String checkCard(int r, int c){
+    public String checkField(int r, int c){
         String output="R-" + r + " C-" + c + " ";
         //Have to check both arrays
         //Land check
