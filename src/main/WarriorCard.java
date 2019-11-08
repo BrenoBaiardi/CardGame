@@ -5,6 +5,7 @@ public class WarriorCard extends Card {
     private int power;
     private int life;
 
+
     public WarriorCard(String name, String color, int power, int life){
         this.life = life;
         this.power = power;

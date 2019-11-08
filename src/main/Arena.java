@@ -5,6 +5,9 @@ import java.util.Arrays;
 
 public class Arena {
 
+    //TODO create ArenaTest
+    // some of the behaviors should be easier to test
+
     int rows_size = 5;
     int columns_size = 5;
     ArenaCell[][] arenaLands = new ArenaCell[rows_size][columns_size];
@@ -20,10 +23,10 @@ public class Arena {
     }
 
     public void addCard(Card card,int r, int c) {
-        if (card instanceof LandCard) {
+        if (card.getType() == "land") {
             this.arenaLands[r][c].placeCard(card);
         }
-        if (card instanceof WarriorCard) {
+        if (card.getType() == "warrior") {
             this.arenaWarriors[r][c].placeCard(card);
         }
     }
