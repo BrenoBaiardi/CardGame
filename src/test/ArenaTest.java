@@ -1,5 +1,4 @@
-import main.Arena;
-import main.ArenaCell;
+import main.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -7,10 +6,14 @@ import org.junit.Test;
 public class ArenaTest {
 
     Arena arena;
+    Card war_card;
+    Card land_card;
 
     @Before
     public void setUp(){
         this.arena = new Arena();
+        this.war_card = new WarriorCard("Warrior0","red",2,2);
+        this.land_card = new LandCard("Land0","green");
     }
 
     @Test
@@ -24,12 +27,12 @@ public class ArenaTest {
     }
 
     @Test
-    public void testCellAssociationInArena(){
+    public void testCellInstanceInArena(){
         for (int i = 0; i < this.arena.rows_size; i++) {
             for (int j = 0; j < this.arena.columns_size; j++) {
-                if (this.arena.arenaWarriors[i][j] instanceof ArenaCell &&
-                        this.arena.arenaWarriors[i][j] instanceof ArenaCell) {
-                    continue;
+                if (this.arena.arenaWarriors[i][j] != null &&
+                        this.arena.arenaWarriors[i][j] != null) {
+                    continue; // explicit better than implicit
                 }
                 else{
                     Assert.fail("Non ArenaCell Object found in index: "+ i +","+ j);
@@ -42,23 +45,24 @@ public class ArenaTest {
 
     @Test
     public void testAddCardIntoArena() {
-        //TODO implement Test
+        this.arena.addCard(this.war_card,0,0);
     }
 
     @Test
-    public void testCheckField() {
-        //TODO implement Test
+    public void testCheckEmptyField() {
+        Assert.assertEquals("R-0 C-0 Empty Land + No warrior",this.arena.checkField(0,0));
     }
 
     @Test
     public void testCheckLand() {
-        //TODO implement Test
+        this.arena.addCard(this.land_card,0,1);
+        Assert.assertEquals("R-0 C-1 Land0 + No warrior",this.arena.checkField(0,1));
     }
-
 
     @Test
     public void testCheckWarrior() {
-        //TODO implement Test
+        this.arena.addCard(this.war_card,1,0);
+        Assert.assertEquals("R-1 C-0 Empty Land + Warrior0",this.arena.checkField(1,0));
     }
 
 }

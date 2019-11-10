@@ -5,9 +5,6 @@ import java.util.Arrays;
 
 public class Arena {
 
-    //TODO create ArenaTest
-    // some of the behaviors should be easier to test
-
     public int rows_size = 5;
     public int columns_size = 5;
     public ArenaCell[][] arenaLands = new ArenaCell[rows_size][columns_size];
