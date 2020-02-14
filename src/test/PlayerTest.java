@@ -26,6 +26,7 @@ public class PlayerTest {
 
         deck = new Deck("player_deck", this.cards_list);
         this.play1 = new Player("P1", deck);
+        play1.beginTurn();
         card = null;
     }
 
@@ -62,7 +63,7 @@ public class PlayerTest {
         Assert.assertEquals(4,play1.hand.getSize());
         try {
             this.play1.useCard("War3");
-        } catch (CardNotFoundException e) {
+        } catch (CardNotFoundException | TurnException e) {
             e.printStackTrace();
         }
         Assert.assertEquals(3,play1.hand.getSize());
@@ -85,7 +86,7 @@ public class PlayerTest {
 
         try {
             this.play1.useCard("War3");
-        } catch (CardNotFoundException e) {
+        } catch (CardNotFoundException | TurnException e) {
             Assert.fail("e");
         }
         Assert.assertEquals("War3",this.play1.field.get(0).getName());

@@ -12,7 +12,7 @@ In order to receive minimum acceptance, the game should have the following prere
 
 * Be fun - We do not want to develop something that could not be played at all.
 * Be simple - Hard games aren't always as fun as they could.
-* Be complete - Even in being simple, the concept of functional ia also covering aspects known to other games.
+* Be complete - Even in being simple, the concept of functional also intends to cover aspects known to other games.
 
 These are the minimum prerequisites, and if the project goes on, more will be add.
 

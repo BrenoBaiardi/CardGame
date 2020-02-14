@@ -8,6 +8,7 @@ public class Game {
 
     //TODO crate Game TestClass
 
+    public Arena arena;
     public Player p1;
     public Player p2;
     public int turnCounter=1;
@@ -18,6 +19,7 @@ public class Game {
      */
 
     public Game(Player p1, Player p2) {
+        arena = new Arena();
         this.p1 = p1;
         p1.drawCard(5);
         this.p2 = p2;
@@ -47,12 +49,12 @@ public class Game {
 
     @Override
     public String toString() {
-        return "\n#-#-main.Game Status-#-#\n" +
+        return "\n\n#-#-main.Game Status-#-#\n" +
                 "\nPlayer1=" + p1.getName() +
                 "\nplaying=" + p1.isPlaying() +
-                "\n\nPlayer2=" + p2.getName() +
+                "\nPlayer2=" + p2.getName() +
                 "\nplaying=" + p2.isPlaying() +
-                "\n\nTurn Nº => " + turnCounter;
+                "\nTurn Nº => " + turnCounter;
     }
 
     public void printField(){
