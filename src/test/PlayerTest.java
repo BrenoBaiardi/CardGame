@@ -18,9 +18,9 @@ public class PlayerTest {
         //creating sample card List
         for (int i = 0; i < 10; i++) {
             if (i % 2 == 0) {
-                cards_list.add(new WarriorCard("War" + Integer.toString(i + 1), "red", 2, 2));
+                cards_list.add(new WarriorCard("War" + Integer.toString(i + 1), "red", 2, 2, "any"));
             } else {
-                cards_list.add(new LandCard("Land" + Integer.toString(i + 1), "blue"));
+                cards_list.add(new LandCard("Land" + Integer.toString(i + 1), "blue", "any"));
             }
         }
 

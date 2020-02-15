@@ -9,8 +9,8 @@ public class DeckTest {
 
     ArrayList<Card> cards_list = new ArrayList<Card>();
     Deck deck;
-    Card war_card = new WarriorCard("test Warrior", "red", 2, 2);
-    Card land_card = new LandCard("test Land", "green");
+    Card war_card = new WarriorCard("test Warrior", "red", 2, 2, "any");
+    Card land_card = new LandCard("test Land", "green", "any");
 
 
     @Before
@@ -19,10 +19,10 @@ public class DeckTest {
         //creating sample card List
         for(int i = 0; i < 10; i++){
             if (i%2==0) {
-                cards_list.add(new WarriorCard("War"+Integer.toString(i+1), "red", 2, 2));
+                cards_list.add(new WarriorCard("War"+Integer.toString(i+1), "red", 2, 2, "any"));
             }
             else{
-                cards_list.add(new LandCard("Land"+Integer.toString(i+1), "blue"));
+                cards_list.add(new LandCard("Land"+Integer.toString(i+1), "blue", "any"));
             }
         }
         deck = new Deck("test_deck",this.cards_list);

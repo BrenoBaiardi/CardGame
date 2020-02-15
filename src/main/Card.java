@@ -6,6 +6,7 @@ public abstract class Card{
     // maybe not needed,
     // only getters and setter until now
 
+    public String owner;
     protected String name = null;
     protected String color = null;
     protected String type = null;

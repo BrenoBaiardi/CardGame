@@ -12,8 +12,8 @@ public class ArenaTest {
     @Before
     public void setUp(){
         this.arena = new Arena();
-        this.war_card = new WarriorCard("Warrior0","red",2,2);
-        this.land_card = new LandCard("Land0","green");
+        this.war_card = new WarriorCard("Warrior0","red",2,2, "any");
+        this.land_card = new LandCard("Land0","green", "any");
     }
 
     @Test

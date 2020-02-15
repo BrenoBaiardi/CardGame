@@ -14,10 +14,10 @@ public class PlayTest {
 
         for(int i = 0; i < 10; i++){
             if (i%2==0) {
-                cards_list.add(new WarriorCard("W"+Integer.toString(i+1), "red", 2, 2));
+                cards_list.add(new WarriorCard("W"+Integer.toString(i+1), "red", 2, 2,"temp"));
             }
             else{
-                cards_list.add(new LandCard("L"+Integer.toString(i+1), "blue"));
+                cards_list.add(new LandCard("L"+Integer.toString(i+1), "blue","temp"));
             }
             //uncomment to print list
             //System.out.println(cards_list.get(cards_list.size()-1));

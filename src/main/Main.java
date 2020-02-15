@@ -11,10 +11,10 @@ public class Main {
 
         for(int i = 0; i < 10; i++){
             if (i%2==0) {
-                cards_list.add(new WarriorCard("W"+Integer.toString(i+1), "red", 2, 2));
+                cards_list.add(new WarriorCard("W"+Integer.toString(i+1), "red", 2, 2,"temp"));
             }
             else{
-                cards_list.add(new LandCard("L"+Integer.toString(i+1), "blue"));
+                cards_list.add(new LandCard("L"+Integer.toString(i+1), "blue","temp"));
             }
             //uncomment to print list
             //System.out.println(cards_list.get(cards_list.size()-1));
@@ -23,6 +23,16 @@ public class Main {
         //Init card lists
         ArrayList<Card> cards_list1 = new ArrayList<Card>(cards_list);
         ArrayList<Card> cards_list2 = new ArrayList<Card>(cards_list);
+
+        for (int i = 0; i < cards_list1.size(); i++) {
+            cards_list1.get(i).owner = "owner_1";
+        }
+
+        System.out.println(cards_list1);
+
+        for (int i = 0; i < cards_list2.size(); i++) {
+            cards_list1.get(i).owner = "owner_2";
+        }
 
         //init decks and players
         Deck d1 = new Deck("d1",cards_list1);

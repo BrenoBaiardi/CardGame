@@ -6,7 +6,8 @@ public class WarriorCard extends Card {
     private int life;
 
 
-    public WarriorCard(String name, String color, int power, int life){
+    public WarriorCard(String name, String color, int power, int life, String owner){
+        this.owner = owner;
         this.life = life;
         this.power = power;
         this.name = name;
