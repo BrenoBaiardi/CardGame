@@ -36,24 +36,35 @@ public class PlayTest {
         //init game
         Game game = new Game(p1,p2);
         String cmd_input;
+        int row;
+        int column;
 
         //game loop
         while(true){
             game.printField();
             System.out.println(game.arena);
 
+            System.out.print("row");
             System.out.print(">>");
             cmd_input = input.next();
             if (cmd_input.equals("x")){
                 break;
             }
+            row = Integer.parseInt(cmd_input);
+            System.out.print("column");
+            System.out.print(">>");
+            cmd_input = input.next();
+            if (cmd_input.equals("x")){
+                break;
+            }
+            column = Integer.parseInt(cmd_input);
 
             //player one move
             p1.drawCard(1);
-            game.putUsedCardInArena(p1.useCard(p1.hand.cards.get(0).name),0,0);
+            game.putUsedCardInArena(p1.useCard(p1.hand.cards.get(0).name),row,column);
             game.nextTurn();
             //player two move
-            game.putUsedCardInArena(p2.useCard(p2.hand.cards.get(0).name),2,2);
+            game.putUsedCardInArena(p2.useCard(p2.hand.cards.get(0).name),row + 1,3);
             p2.drawCard(1);
             game.nextTurn();
         }
