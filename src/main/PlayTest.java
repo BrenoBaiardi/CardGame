@@ -50,10 +50,10 @@ public class PlayTest {
 
             //player one move
             p1.drawCard(1);
-            p1.useCard(p1.hand.cards.get(0).name);
+            game.putUsedCardInArena(p1.useCard(p1.hand.cards.get(0).name),0,0);
             game.nextTurn();
             //player two move
-            p2.useCard(p2.hand.cards.get(0).name);
+            game.putUsedCardInArena(p2.useCard(p2.hand.cards.get(0).name),2,2);
             p2.drawCard(1);
             game.nextTurn();
         }

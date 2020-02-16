@@ -26,6 +26,7 @@ public class Game {
         p2.drawCard(5);
 
         //has to be pointed directly in order to be updated when player fields are
+
         field.put(p1.getName(),p1.field);
         field.put(p2.getName(),p2.field);
 
@@ -67,5 +68,9 @@ public class Game {
         for (int i = 0; i < this.field.get(p2.getName()).size(); i++) {
             System.out.println(this.field.get(p2.getName()).get(i));
         }
+    }
+
+    public void putUsedCardInArena(Card usedCard,int r,int c){
+        arena.addCard(usedCard,r,c);
     }
 }
