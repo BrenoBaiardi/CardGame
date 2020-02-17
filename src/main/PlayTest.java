@@ -41,7 +41,7 @@ public class PlayTest {
 
         //game loop
         while(true){
-            game.printField();
+            game.printArena();
             System.out.println(game.arena);
 
             System.out.print("row");

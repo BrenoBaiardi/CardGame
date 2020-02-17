@@ -81,9 +81,6 @@ public class Main {
         System.out.println(p1.hand);
         System.out.println(p2.hand);
 
-
-        game.printField();
-
         Arena arena = new Arena();
         arena.addCard(cards_list.get(0),0,0);
         arena.addCard(cards_list.get(1),0,1);

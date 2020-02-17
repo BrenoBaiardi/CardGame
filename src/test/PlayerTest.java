@@ -5,18 +5,24 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
+//TODO REALLY IMPORTANT Check these tests
+
 public class PlayerTest {
 
     ArrayList<Card> cards_list = new ArrayList<Card>();
     Deck deck;
+    Deck deck2;
+    Player play0;
     Player play1;
+    Player play2;
     Card card;
+    Game game;
 
     @Before
     public void setUp() throws Exception {
 
         //creating sample card List
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 30; i++) {
             if (i % 2 == 0) {
                 cards_list.add(new WarriorCard("War" + Integer.toString(i + 1), "red", 2, 2, "any"));
             } else {
@@ -26,82 +32,72 @@ public class PlayerTest {
 
         deck = new Deck("player_deck", this.cards_list);
         this.play1 = new Player("P1", deck);
-        play1.beginTurn();
+        deck2 = new Deck("player_deck", this.cards_list);
+        this.play2 = new Player("P2", deck2);
         card = null;
+        game = new Game(play1,play2);
+
+        this.play0 = new Player("P1", deck);
+
+        try{
+            play1.drawChosenCard("War3");
+        } catch (CardNotFoundException e) {
+            //pass
+        }
+
     }
 
 
     @Test
-    public void testPlayerconstructor() {
-        /*Hand must not be created when  new() used
-        must only be instanciated when the Game begins
+    public void testPlayerConstructor() {
+        /*Hand must not be created when new() used
+        must only be instantiated when the Game begins
         because the player can have a infinite number of games
         the hand is created by game
         * */
-        Assert.assertNull(this.play1.hand);
-        Assert.assertEquals(0,play1.field.size());
-        Assert.assertEquals(0,play1.dead_zone.size());
+        Assert.assertNull(this.play0.hand);
+        Assert.assertEquals(0,play0.dead_zone.size());
     }
 
     @Test
     public void testDrawIntoHand() {
         this.play1.drawCard(1);
-        Assert.assertEquals(1,this.play1.hand.getSize());
+        Assert.assertEquals(7,this.play1.hand.getSize());
+    }
+
+    @Test
+    public void testCardNotFound() {
+        try {
+            this.play1.drawChosenCard("abcd");
+        } catch (CardNotFoundException e) {
+            Assert.assertTrue(true);
+        }
     }
 
     @Test
     public void testUseCard() {
-        try {
-            this.play1.drawChosenCard("Land2");
-            this.play1.drawChosenCard("War3");
-            this.play1.drawChosenCard("Land4");
-            this.play1.drawChosenCard("Land6");
-        } catch (CardNotFoundException e) {
-            Assert.fail("e");
-        }
 
-        Assert.assertEquals(4,play1.hand.getSize());
         try {
+            System.out.println(play1.hand);
             this.play1.useCard("War3");
         } catch (CardNotFoundException | TurnException e) {
             e.printStackTrace();
         }
-        Assert.assertEquals(3,play1.hand.getSize());
-        Assert.assertEquals(1,this.play1.field.size());
-        
+        Assert.assertEquals(5,play1.hand.getSize());
     }
 
     @Test
     public void testUseCardIntoField() {
         try {
-            this.play1.drawChosenCard("Land2");
-            this.play1.drawChosenCard("War3");
-            this.play1.drawChosenCard("Land4");
-            this.play1.drawChosenCard("War5");
-            this.play1.drawChosenCard("Land6");
-            this.play1.drawChosenCard("War7");
-        } catch (CardNotFoundException e) {
-            Assert.fail();
-        }
-
-        try {
-            this.play1.useCard("War3");
+            this.game.putUsedCardInArena(this.play1.useCard("War3"),0,0);
         } catch (CardNotFoundException | TurnException e) {
             Assert.fail("e");
         }
-        Assert.assertEquals("War3",this.play1.field.get(0).getName());
+        Assert.assertEquals("War3",this.game.arena.getWarrior(0,0).getName());
     }
 
     @Test
     public void testDiscardIntoDeadZone() {
-
-        try {
-            this.play1.drawChosenCard("Land2");
-            this.play1.drawChosenCard("War3");
-        } catch (CardNotFoundException e) {
-            Assert.fail("e");
-        }
-
         try {
             this.play1.discardCard("War3");
         } catch (CardNotFoundException e) {

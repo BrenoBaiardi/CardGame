@@ -8,13 +8,11 @@ public class Player {
     private boolean playing = false;
     private Deck deck;
     public Hand hand;
-    public ArrayList<Card> field;
     public ArrayList<Card> dead_zone;
 
     public Player(String name, Deck deck) {
         this.name = name;
         this.deck = deck;
-        this.field = new ArrayList<Card>();
         this.dead_zone = new ArrayList<Card>();
     }
 
@@ -68,7 +66,6 @@ public class Player {
     public Card useCard(String name) throws CardNotFoundException, TurnException {
         if (isPlaying()){
             Card card = this.hand.removeCard(name);
-            this.field.add(card);
             return card;
         }
         else{
@@ -80,12 +77,4 @@ public class Player {
         Card card = this.hand.removeCard(name);
         this.dead_zone.add(card);
     }
-
-    public void printField(){
-        System.out.println("Field list by - main.Player="+name);
-        for (int i = 0; i < this.field.size(); i++) {
-            System.out.println(this.field.get(i));
-        }
-    }
-
 }

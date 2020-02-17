@@ -28,6 +28,7 @@ public class Arena {
         }
     }
 
+    // Field will be the name of the cell in the game
     public String checkField(int r, int c){
         String output="R-" + r + " C-" + c + " ";
         //Have to check both arrays
@@ -47,6 +48,14 @@ public class Arena {
             output += arenaWarriors[r][c].checkCard();
         }
         return output;
+    }
+
+    public Card getWarrior(int row, int column){
+        return arenaWarriors[row][column].card;
+    }
+
+    public Card getLand(int row, int column){
+        return arenaLands[row][column].card;
     }
 
     @Override
