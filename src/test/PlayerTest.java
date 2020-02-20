@@ -79,25 +79,24 @@ public class PlayerTest {
     @Test
     public void testUseCard() {
 
+        int amount = play1.hand.getSize();
         try {
             System.out.println(play1.hand);
             this.play1.useCard("War3");
         } catch (CardNotFoundException | TurnException e) {
             e.printStackTrace();
         }
-        //TODO create assert that checks if the card is in arena
-        // also, maybe that should be in the integration tests
-        Assert.fail("Not implemented");
+        Assert.assertEquals(amount - 1, this.play1.hand.getSize());
     }
 
     @Test
     public void testDiscardCard() throws CardNotFoundException {
 
-        int amount = play1.hand.getSize();
+        int amount = play1.dead_zone.size();
         this.play1.discardCard("War3");
 
         //should not be done getting a specific card because of the shuffle
-        Assert.assertEquals(amount - 1, this.play1.hand.getSize());
+        Assert.assertEquals(amount + 1, this.play1.dead_zone.size());
     }
 
     @Test
