@@ -2,8 +2,8 @@ package main;
 
 public abstract class Card{
 
-    //TODO crate Card TestClass
-    // maybe not needed,
+    //TODO create Card TestClass
+    // maybe not needed, no behavior to check
     // only getters and setter until now
 
     public String owner;
@@ -13,7 +13,12 @@ public abstract class Card{
     protected String effect = null;
 
     public String getName() {
-        return name;
+        if (name == null){
+            return "NONE";
+        }
+        else {
+            return name;
+        }
     }
 
     public String getColor() {

@@ -3,8 +3,17 @@ package main;
 public class ArenaCell {
 
     Card card = null;
-    int row;
-    int column;
+
+    public int getRow() {
+        return row;
+    }
+
+    public int getColumn() {
+        return column;
+    }
+
+    private int row;
+    private int column;
 
     public ArenaCell(int row, int column){
         this.card = null;

@@ -55,12 +55,17 @@ public class Arena {
     public ArenaCell checkCardInField(String card_name) throws CardNotFoundException {
         for (int row = 0; row < rows_size; row++) {
             for (int column = 0; column < columns_size; column++) {
-                if (this.arenaLands[row][column].card.getName() == card_name){
-                    return arenaLands[row][column];
-                }
-                else if (this.arenaWarriors[row][column].card.getName() == card_name){
-                    return arenaWarriors[row][column];
-                }
+//                System.out.println(!this.arenaLands[row][column].isEmpty() || !this.arenaWarriors[row][column].isEmpty());
+//                if ( !this.arenaLands[row][column].isEmpty() || !this.arenaWarriors[row][column].isEmpty()){
+                    if (!this.arenaLands[row][column].isEmpty() &&
+                            this.arenaLands[row][column].card.getName() == card_name){
+                        return arenaLands[row][column];
+                    }
+                    else if (!this.arenaWarriors[row][column].isEmpty() &&
+                            this.arenaWarriors[row][column].card.getName() == card_name){
+                        return arenaWarriors[row][column];
+                    }
+//                }
             }
         }
         throw new CardNotFoundException("Card not in Arena");

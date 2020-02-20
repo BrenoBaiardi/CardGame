@@ -5,8 +5,6 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-//TODO REALLY IMPORTANT Check these tests
-
 public class PlayerTest {
 
     ArrayList<Card> cards_list = new ArrayList<Card>();
