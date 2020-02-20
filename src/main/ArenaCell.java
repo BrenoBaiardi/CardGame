@@ -3,9 +3,13 @@ package main;
 public class ArenaCell {
 
     Card card = null;
+    int row;
+    int column;
 
-    public void ArenaCell(){
+    public ArenaCell(int row, int column){
         this.card = null;
+        this.row = row;
+        this.column = column;
     }
 
     public void placeCard(Card card){

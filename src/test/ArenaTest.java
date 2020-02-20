@@ -53,6 +53,7 @@ public class ArenaTest {
         Assert.assertEquals("R-0 C-0 Empty Land + No warrior",this.arena.checkField(0,0));
     }
 
+    //TODO to be replaced with the test below
     @Test
     public void testCheckLand() {
         this.arena.addCard(this.land_card,0,1);
@@ -60,9 +61,19 @@ public class ArenaTest {
     }
 
     @Test
+    public void checkLandInField(){
+        Assert.fail("Not implemented");
+    }
+
+    //TODO to be replaced with the test below
+    @Test
     public void testCheckWarrior() {
         this.arena.addCard(this.war_card,1,0);
         Assert.assertEquals("R-1 C-0 Empty Land + Warrior0",this.arena.checkField(1,0));
     }
 
+    @Test
+    public void checkWarriorInField(){
+        Assert.fail("Not implemented");
+    }
 }
