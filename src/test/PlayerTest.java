@@ -39,6 +39,7 @@ public class PlayerTest {
 
         this.play0 = new Player("P1", deck);
 
+        // ensure card "War3" is in hand to run tests
         try{
             play1.drawChosenCard("War3");
         } catch (CardNotFoundException e) {
@@ -61,8 +62,9 @@ public class PlayerTest {
 
     @Test
     public void testDrawIntoHand() {
+        int amount = play1.hand.getSize();
         this.play1.drawCard(1);
-        Assert.assertEquals(7,this.play1.hand.getSize());
+        Assert.assertEquals(amount+1,this.play1.hand.getSize());
     }
 
     @Test
@@ -89,14 +91,13 @@ public class PlayerTest {
     }
 
     @Test
-    public void testDiscardIntoDeadZone() {
-        try {
-            this.play1.discardCard("War3");
-        } catch (CardNotFoundException e) {
-            Assert.fail("e");
-        }
+    public void testDiscardCard() throws CardNotFoundException {
+
+        int amount = play1.hand.getSize();
+        this.play1.discardCard("War3");
+
         //should not be done getting a specific card because of the shuffle
-        Assert.assertEquals(1,this.play1.dead_zone.size());
+        Assert.assertEquals(amount - 1, this.play1.hand.getSize());
     }
 
     @Test
