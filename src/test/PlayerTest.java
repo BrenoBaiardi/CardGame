@@ -83,17 +83,9 @@ public class PlayerTest {
         } catch (CardNotFoundException | TurnException e) {
             e.printStackTrace();
         }
-        Assert.assertEquals(5,play1.hand.getSize());
-    }
-
-    @Test
-    public void testUseCardIntoField() {
-        try {
-            this.game.putUsedCardInArena(this.play1.useCard("War3"),0,0);
-        } catch (CardNotFoundException | TurnException e) {
-            Assert.fail("e");
-        }
-        Assert.assertEquals("War3",this.game.arena.getWarrior(0,0).getName());
+        //TODO create assert that checks if the card is in arena
+        // also, maybe that should be in the integration tests
+        Assert.fail("Not implemented");
     }
 
     @Test
@@ -103,7 +95,8 @@ public class PlayerTest {
         } catch (CardNotFoundException e) {
             Assert.fail("e");
         }
-        Assert.assertEquals("War3",this.play1.dead_zone.get(0).getName());
+        //should not be done getting a specific card because of the shuffle
+        Assert.assertEquals(1,this.play1.dead_zone.size());
     }
 
     @Test
