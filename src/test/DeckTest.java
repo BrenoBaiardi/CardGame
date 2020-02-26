@@ -63,7 +63,7 @@ public class DeckTest {
         try {
             drawn_card = deck.drawChosenCard("test Land");
         } catch (CardNotFoundException e) {
-            Assert.fail("e");
+            Assert.fail(String.valueOf(e));
         }
         Assert.assertEquals(drawn_card, land_card);
     }

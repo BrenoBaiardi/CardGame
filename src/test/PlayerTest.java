@@ -65,13 +65,10 @@ public class PlayerTest {
         Assert.assertEquals(amount+1,this.play1.hand.getSize());
     }
 
-    @Test
-    public void testCardNotFound() {
-        try {
-            this.play1.drawChosenCard("abcd");
-        } catch (CardNotFoundException e) {
-            Assert.assertTrue(true);
-        }
+    @Test(expected = CardNotFoundException.class)
+    public void testCardNotFound() throws CardNotFoundException {
+        this.play1.drawChosenCard("abcd");
+        Assert.fail("Exception not thrown.");
     }
 
     @Test
