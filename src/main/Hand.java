@@ -8,7 +8,7 @@ public class Hand {
     // maybe not needed
     // validations troughout PlayerTest Class
 
-    ArrayList<Card> cards = new ArrayList<Card>();
+    public ArrayList<Card> cards = new ArrayList<Card>();
 
     public int getSize() {
         return cards.size();
