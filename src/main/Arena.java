@@ -28,7 +28,7 @@ public class Arena {
         }
     }
 
-    // Field will be the name of the cell in the game
+    // "Field" will be the name of the cell in the game
     // the check field method checks what is in the specific field
     // TODO - Maybe it could return ArenaCell Type
     public String checkField(int r, int c){

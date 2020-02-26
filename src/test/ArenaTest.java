@@ -49,9 +49,9 @@ public class ArenaTest {
     }
 
     //TODO Replace or review need
-    @Test
-    public void testCheckEmptyField() {
-        Assert.assertEquals("R-0 C-0 Empty Land + No warrior",this.arena.checkField(0,0));
+    @Test(expected = CardNotFoundException.class)
+    public void testCheckEmptyField() throws CardNotFoundException {
+        arena.checkCardInField("Land0");
     }
 
     @Test
