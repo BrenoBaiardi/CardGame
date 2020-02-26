@@ -48,7 +48,6 @@ public class ArenaTest {
         this.arena.addCard(this.war_card,0,0);
     }
 
-    //TODO Replace or review need
     @Test(expected = CardNotFoundException.class)
     public void testCheckEmptyField() throws CardNotFoundException {
         arena.checkCardInField("Land0");
