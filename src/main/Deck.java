@@ -68,6 +68,6 @@ public class Deck {
             }
             else continue;
         }
-        throw new CardNotFoundException("Could not find card in deck");
+        throw new CardNotFoundException("Could not find card in deck: " + name);
     }
 }

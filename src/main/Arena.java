@@ -13,8 +13,8 @@ public class Arena {
     public Arena(){
         for (int row = 0; row < rows_size; row++) {
             for (int column = 0; column < columns_size; column++) {
-                arenaLands[row][column] = new ArenaCell();
-                arenaWarriors[row][column] = new ArenaCell();
+                arenaLands[row][column] = new ArenaCell(row, column);
+                arenaWarriors[row][column] = new ArenaCell(row, column);
             }
         }
     }
@@ -28,6 +28,9 @@ public class Arena {
         }
     }
 
+    // "Field" will be the name of the cell in the game
+    // the check field method checks what is in the specific field
+    // TODO - Maybe it could return ArenaCell Type
     public String checkField(int r, int c){
         String output="R-" + r + " C-" + c + " ";
         //Have to check both arrays
@@ -47,6 +50,33 @@ public class Arena {
             output += arenaWarriors[r][c].checkCard();
         }
         return output;
+    }
+
+    public ArenaCell checkCardInField(String card_name) throws CardNotFoundException {
+        for (int row = 0; row < rows_size; row++) {
+            for (int column = 0; column < columns_size; column++) {
+//                System.out.println(!this.arenaLands[row][column].isEmpty() || !this.arenaWarriors[row][column].isEmpty());
+//                if ( !this.arenaLands[row][column].isEmpty() || !this.arenaWarriors[row][column].isEmpty()){
+                    if (!this.arenaLands[row][column].isEmpty() &&
+                            this.arenaLands[row][column].card.getName() == card_name){
+                        return arenaLands[row][column];
+                    }
+                    else if (!this.arenaWarriors[row][column].isEmpty() &&
+                            this.arenaWarriors[row][column].card.getName() == card_name){
+                        return arenaWarriors[row][column];
+                    }
+//                }
+            }
+        }
+        throw new CardNotFoundException("Card not in Arena");
+    }
+
+    public Card getWarrior(int row, int column){
+        return arenaWarriors[row][column].card;
+    }
+
+    public Card getLand(int row, int column){
+        return arenaLands[row][column].card;
     }
 
     @Override

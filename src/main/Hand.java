@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class Hand {
 
-    //TODO crate Hand TestClass
+    //TODO create Hand TestClass
     // maybe not needed
-    // Being validated trough PlayerTest
+    // validations troughout PlayerTest Class
 
     ArrayList<Card> cards = new ArrayList<Card>();
 

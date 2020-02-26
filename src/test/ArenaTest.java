@@ -48,21 +48,23 @@ public class ArenaTest {
         this.arena.addCard(this.war_card,0,0);
     }
 
-    @Test
-    public void testCheckEmptyField() {
-        Assert.assertEquals("R-0 C-0 Empty Land + No warrior",this.arena.checkField(0,0));
+    //TODO Replace or review need
+    @Test(expected = CardNotFoundException.class)
+    public void testCheckEmptyField() throws CardNotFoundException {
+        arena.checkCardInField("Land0");
     }
 
     @Test
-    public void testCheckLand() {
+    public void checkLandInField() throws CardNotFoundException {
         this.arena.addCard(this.land_card,0,1);
-        Assert.assertEquals("R-0 C-1 Land0 + No warrior",this.arena.checkField(0,1));
+        ArenaCell position = arena.checkCardInField("Land0");
+        Assert.assertTrue(position.getRow() == 0 && position.getColumn() == 1);
     }
 
     @Test
-    public void testCheckWarrior() {
+    public void checkWarriorInField() throws CardNotFoundException {
         this.arena.addCard(this.war_card,1,0);
-        Assert.assertEquals("R-1 C-0 Empty Land + Warrior0",this.arena.checkField(1,0));
+        ArenaCell position = arena.checkCardInField("Warrior0");
+        Assert.assertTrue(position.getRow() == 1 && position.getColumn() == 0);
     }
-
 }

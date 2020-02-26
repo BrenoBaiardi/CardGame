@@ -4,8 +4,21 @@ public class ArenaCell {
 
     Card card = null;
 
-    public void ArenaCell(){
+    public int getRow() {
+        return row;
+    }
+
+    public int getColumn() {
+        return column;
+    }
+
+    private int row;
+    private int column;
+
+    public ArenaCell(int row, int column){
         this.card = null;
+        this.row = row;
+        this.column = column;
     }
 
     public void placeCard(Card card){
