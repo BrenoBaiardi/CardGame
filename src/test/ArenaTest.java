@@ -30,8 +30,8 @@ public class ArenaTest {
     public void testCellInstanceInArena(){
         for (int i = 0; i < this.arena.rows_size; i++) {
             for (int j = 0; j < this.arena.columns_size; j++) {
-                if (this.arena.arenaWarriors[i][j] != null &&
-                        this.arena.arenaWarriors[i][j] != null) {
+                if (this.arena.arena[i][j][1] != null &&
+                        this.arena.arena[i][j][1] != null) {
                     continue; // explicit better than implicit
                 }
                 else{

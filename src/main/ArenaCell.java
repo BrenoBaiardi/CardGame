@@ -14,8 +14,27 @@ public class ArenaCell {
 
     private int row;
     private int column;
+    public enum Type {
+        WARRIOR("1") ,
+        LAND("0");
 
-    public ArenaCell(int row, int column){
+        int arenaType;
+
+        Type(String s) {
+            if (s.equals("W")){
+                arenaType = 1;
+            }
+            else if (s.equals("L")){
+                arenaType = 0;
+            }
+        }
+
+        public int getArenaType() {
+            return arenaType;
+        }
+    }
+
+    public ArenaCell(int row, int column,String type ){
         this.card = null;
         this.row = row;
         this.column = column;
