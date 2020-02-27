@@ -31,25 +31,10 @@ public class Arena {
     // "Field" will be the name of the cell in the game
     // the check field method checks what is in the specific field
     // TODO - Maybe it could return ArenaCell Type
-    public String checkField(int r, int c){
-        String output="R-" + r + " C-" + c + " ";
-        //Have to check both arrays
-        //Land check
-        if (arenaLands[r][c].isEmpty()){
-            output += "Empty Land";
-        }
-        else{
-            output += arenaLands[r][c].checkCard();
-        }
-        output +=  " + ";
-        //warrior check
-        if (arenaWarriors[r][c].isEmpty()){
-            output += "No warrior";
-        }
-        else{
-            output += arenaWarriors[r][c].checkCard();
-        }
-        return output;
+    //  Think about refactoring arena to be 3D array.
+    public ArenaCell checkField(int r, int c) {
+        return arenaLands[r][c];
+        //return arenaWarriors[r][c];
     }
 
     public ArenaCell checkCardInField(String card_name) throws CardNotFoundException {
