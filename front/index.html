@@ -14,25 +14,43 @@
 				<h1 class="titulo">Card Game</h1>
 			</div>
 		</header>
-		<main>
-			<section class="container">
-				<h2 align="center">Arena Title</h2>
-				<table>
-					<thead>
-						<tr>
-							<th width="70px">C1</th>
-							<th width="70px">C2</th>
-							<th width="70px">C3</th>
-							<th width="70px">C4</th>
-							<th width="70px">C5</th>
-						</tr>
-					</thead>
-					<tbody id="arena-table">
-					<!--Insert 5x5 arena here-->
-					</tbody>
-				</table>
 
-			</section>
+		<main>
+			<div align="center">
+				<h2 align="center">Arena Title</h2>
+				<section class="container" id="rival">
+					<table>
+						<tr>
+							<td class="card">Carta 1</td>
+							<td class="card">Carta 2</td>
+						</tr>
+					</table>
+				</section>
+				<section class="container">
+					<table>
+						<thead>
+							<tr>
+								<th width="70px">C1</th>
+								<th width="70px">C2</th>
+								<th width="70px">C3</th>
+								<th width="70px">C4</th>
+								<th width="70px">C5</th>
+							</tr>
+						</thead>
+						<tbody id="arena-table">
+						<!--Insert 5x5 arena here-->
+						</tbody>
+					</table>
+				</section>
+				<section class="container" id="player">
+					<table>
+						<tr>
+							<td class="card">Carta 1</td>
+							<td class="card">Carta 2</td>
+						</tr>
+					</table>
+				</section>
+			</div>
 		</main>
 		<script src="js/init_arena.js"></script>
 	</body>

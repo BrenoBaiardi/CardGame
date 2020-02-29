@@ -6,6 +6,10 @@ This started as a project to train concepts about Objected Oriented programming,
 During the first steps of the development, the goal was to create classes able to manage the behavior that could come out when dealing with cards, decks, players taking turns, and a board field.
 Some great ideas kept coming and after some talks about game and code designing the goal has changed. Now the aim is at creating a functional game.
 
+### Samples
+
+![Card Game Sample](https://ibb.co/WzG39f0)
+
 ### Goals to be functional
 
 In order to receive minimum acceptance, the game should have the following prerequisites:
