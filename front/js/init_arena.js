@@ -12,6 +12,9 @@ function montaTd(dado, classe){
   var td = document.createElement("td");
   td.textContent = dado;
   td.classList.add(classe);
+  console.log(td);
+  td.style.height = "100px";
+  td.style.width = "70px";
   return td;
 }
 
