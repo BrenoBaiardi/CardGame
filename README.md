@@ -8,7 +8,7 @@ Some great ideas kept coming and after some talks about game and code designing 
 
 ### Samples
 
-![Card Game Sample](https://ibb.co/WzG39f0)
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/QHpcBMk/Untitled.png" alt="Untitled" border="0"></a>
 
 ### Goals to be functional
 
