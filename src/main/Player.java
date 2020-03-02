@@ -1,6 +1,7 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.stream.*;
 
 public class Player {
 
@@ -12,6 +13,10 @@ public class Player {
 
     public Player(String name, Deck deck) {
         this.name = name;
+        for (Card card : deck) {
+            card.owner = name;
+        }
+        //TODO cards in deck should have owner set to player Object ID
         this.deck = deck;
         this.dead_zone = new ArrayList<Card>();
     }

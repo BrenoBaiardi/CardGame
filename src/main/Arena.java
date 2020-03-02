@@ -37,12 +37,9 @@ public class Arena {
 
     // "Field" will be the name of the cell in the game
     // the check field method checks what is in the specific field
-    // TODO - Maybe it could return ArenaCell Type
-    //  Think about refactoring arena to be 3D array.
-    //  WIP...
+    //TODO fix how to return only the type requested
     public ArenaCell[] checkField(int r, int c) {
-        return arena[r][c];
-        //return arenaWarriors[r][c];
+        return arena[r][c];//may not be needed due to Getter for Warrior/Land
     }
 
     public ArenaCell checkCardInField(String card_name) throws CardNotFoundException {

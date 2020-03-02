@@ -2,8 +2,9 @@ package main;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 
-public class Deck {
+public class Deck implements Iterable<Card> {
 
     String name;
     private ArrayList<Card> deck = new ArrayList<Card>();
@@ -69,5 +70,10 @@ public class Deck {
             else continue;
         }
         throw new CardNotFoundException("Could not find card in deck: " + name);
+    }
+
+    @Override
+    public Iterator<Card> iterator() {
+        return iterator();
     }
 }

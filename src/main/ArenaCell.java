@@ -51,6 +51,16 @@ public class ArenaCell {
         }
     }
 
+    public Card getCard(){
+        if (this.card != null) {
+            return this.card;
+        }
+        else{
+            //TODO maybe this null is a problem.
+            return null;
+        }
+    }
+
     public String checkCard(){
         if (card != null) {
             return this.card.name;

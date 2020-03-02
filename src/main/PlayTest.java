@@ -67,6 +67,9 @@ public class PlayTest {
             game.putUsedCardInArena(p2.useCard(p2.hand.cards.get(0).name),row + 1,3);
             p2.drawCard(1);
             game.nextTurn();
+
+//            System.out.println(game.arena.checkField(row,column));
+            System.out.println(game.arena.getWarrior(row,column));
         }
 
 

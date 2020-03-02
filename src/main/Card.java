@@ -38,6 +38,7 @@ public abstract class Card{
     public String toString() {
         return "main.Card{" +
                 "name='" + name + '\'' +
+                ", owner='" + owner + '\'' +
                 ", color='" + color + '\'' +
                 ", type='" + type + '\'' +
                 ", effect='" + effect + '\'' +
