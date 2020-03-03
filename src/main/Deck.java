@@ -4,18 +4,48 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 
-public class Deck{
+public class Deck<Card> implements Iterable<Card>{
 
     String name;
     private ArrayList<Card> deck = new ArrayList<Card>();
-
+    Deck<Card> head, tail;
     int size;
+    Card data;
+    Deck<Card> next;
 
     public Deck(String name, ArrayList<Card> deck) {
         this.name = name; //maybe not needed
         this.deck = deck;
         this.size = deck.size();
         Collections.shuffle(this.deck);
+    }
+
+    // return Head
+    public Deck<Card> getHead()
+    {
+        return head;
+    }
+
+    // return Tail
+    public Deck<Card> getTail()
+    {
+        return tail;
+    }
+
+    public Card getData()
+    {
+        return data;
+    }
+
+    public Deck<Card> getNext()
+    {
+        return next;
+    }
+
+    // return Iterator instance
+    public Iterator<Card> iterator()
+    {
+        return new DeckIterator<Card>(this);
     }
 
     @Override
@@ -63,12 +93,40 @@ public class Deck{
     }
 
     private Card findCard(String name) throws CardNotFoundException {
-        for (int i = 0; i < this.deck.size(); i++) {
-            if (this.deck.get(i).name.equals(name)){
-                return this.deck.get(i);
-            }
-            else continue;
+        for (Card card : this.deck){
+            if card.
         }
         throw new CardNotFoundException("Could not find card in deck: " + name);
     }
 }
+
+class DeckIterator<Card> implements Iterator<Card> {
+    Deck<Card> current;
+
+    // initialize pointer to head of the list for iteration
+    public DeckIterator(Deck<Card> list)
+    {
+        current = list.getHead();
+    }
+
+    // returns false if next element does not exist
+    public boolean hasNext()
+    {
+        return current != null;
+    }
+
+    // return current data and update pointer
+    public Card next()
+    {
+        Card card = current.getData();
+        current = current.getNext();
+        return card;
+    }
+
+    // implement if needed
+    public void remove()
+    {
+        throw new UnsupportedOperationException();
+    }
+}
+
