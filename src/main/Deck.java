@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 
-public class Deck implements Iterable<Card> {
+public class Deck{
 
     String name;
     private ArrayList<Card> deck = new ArrayList<Card>();
@@ -70,10 +70,5 @@ public class Deck implements Iterable<Card> {
             else continue;
         }
         throw new CardNotFoundException("Could not find card in deck: " + name);
-    }
-
-    @Override
-    public Iterator<Card> iterator() {
-        return iterator();
     }
 }
