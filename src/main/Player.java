@@ -73,8 +73,23 @@ public class Player {
         }
     }
 
+    public Card useCard(int index) throws CardNotFoundException, TurnException {
+        if (isPlaying()){
+            Card card = this.hand.removeCard(index);
+            return card;
+        }
+        else{
+            throw new TurnException("Player cannot use cards out of his turn");
+        }
+    }
+
     public void discardCard(String name) throws CardNotFoundException {
         Card card = this.hand.removeCard(name);
+        this.dead_zone.add(card);
+    }
+
+    public void discardCard(int position) throws CardNotFoundException {
+        Card card = this.hand.removeCard(position);
         this.dead_zone.add(card);
     }
 }

@@ -81,7 +81,7 @@ public class PlayerTest {
     public void testDiscardCard() throws CardNotFoundException {
 
         int amount = play1.dead_zone.size();
-        this.play1.discardCard(game.p1.hand.cards.get(0).getName());
+        this.play1.discardCard(0);
 
         //should not be done getting a specific card because of the shuffle
         Assert.assertEquals(amount + 1, this.play1.dead_zone.size());
@@ -98,5 +98,18 @@ public class PlayerTest {
         this.play1.beginTurn();
         this.play1.endTurn();
         Assert.assertEquals(false,play1.isPlaying());
+    }
+
+    @Test
+    public void testFindCardInHandByName() throws CardNotFoundException, TurnException {
+        Card first = play1.hand.cards.get(0);
+        String name = play1.hand.cards.get(0).getName();
+        Assert.assertEquals(first,play1.useCard(name));
+    }
+
+    @Test
+    public void testFindCardInHandByIndex() throws CardNotFoundException, TurnException {
+        Card first = play1.hand.cards.get(0);
+        Assert.assertEquals(first,play1.useCard(0));
     }
 }

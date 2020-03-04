@@ -61,7 +61,7 @@ public class PlayTest {
 
             //player one move
             p1.drawCard(1);
-            game.putUsedCardInArena(p1.useCard(p1.hand.cards.get(0).name),row,column);
+            game.putUsedCardInArena(p1.useCard(0),row,column);
             game.nextTurn();
             //player two move
             game.putUsedCardInArena(p2.useCard(p2.hand.cards.get(0).name),row + 1,3);

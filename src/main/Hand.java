@@ -6,7 +6,7 @@ public class Hand {
 
     //TODO create Hand TestClass
     // maybe not needed
-    // validations troughout PlayerTest Class
+    // validations throughout PlayerTest Class
 
     public ArrayList<Card> cards = new ArrayList<Card>();
 
@@ -24,6 +24,12 @@ public class Hand {
         return card;
     }
 
+    public Card removeCard(int index) throws CardNotFoundException {
+        Card card = findCard(index);
+        cards.remove(index); //removes Bys using the index position in hand
+        return card;
+    }
+
     private Card findCard(String name) throws CardNotFoundException {
         for (int i = 0; i < this.cards.size(); i++) {
             if (this.cards.get(i).name.equals(name)){
@@ -32,6 +38,13 @@ public class Hand {
             else continue;
         }
         throw new CardNotFoundException("Card could not be found in Hand");
+    }
+
+    private Card findCard(int index) throws CardNotFoundException {
+            if (0 <= index && index < this.cards.size()){
+                return this.cards.get(index);
+            }
+            else throw new CardNotFoundException("Card could not be found in Hand");
     }
 
     @Override
