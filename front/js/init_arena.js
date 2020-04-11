@@ -13,7 +13,7 @@ function montaTd(dado, classe){
   td.textContent = dado;
   td.classList.add(classe);
   td.classList.add("card");
-  console.log(td);
+  //console.log(td);
   return td;
 }
 

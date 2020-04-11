@@ -81,3 +81,7 @@ label{
     width: 60px;
     height: 85px;
 }
+
+.highlighted-card{
+    background: #80bdff;
+}
